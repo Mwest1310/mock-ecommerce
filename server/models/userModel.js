@@ -1,7 +1,6 @@
 import mongoose from "mongoose";
 import bcrypt from 'bcryptjs';
 
-// the user schema takes in username, email and password. All required.
 const userSchema = mongoose.Schema({
     username: {
         type: String,
@@ -12,18 +11,6 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
     },
-    cartItems: [
-        {
-            quantity: {
-                type: Number,
-                default: 1
-            },
-            product: {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: 'Product'
-            }
-        }
-    ],
     role: {
         type: String,
         enum: ['customer', 'admin'],
@@ -36,7 +23,7 @@ const userSchema = mongoose.Schema({
 userSchema.methods.matchPassword = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 };
-// before the schema is saved, check if the password has been modified (or created). If it has, then hash the password.
+
 userSchema.pre('save', async function(next) {
     if(!this.isModified('password')) {
         next();

@@ -57,19 +57,19 @@ const Products = () => {
                 <div className="row">
                     <div className="product">
                         <img src="/assets/images/clothing.jpg" alt="clothes" />
-                        <h3><a href="#">Clothing</a></h3>
+                        <h3><a href="/category/clothing">Clothing</a></h3>
                     </div>
                     <div className="product">
                         <img src="/assets/images/accessories.jpg" alt="accessories" />
-                        <h3><a href="#">Accessories</a></h3>
+                        <h3><a href="/category/accessories">Accessories</a></h3>
                     </div>
                     <div className="product">
                         <img src="/assets/images/devices.jpg" alt="wait" />
-                        <h3><a href="#">Devices</a></h3>
+                        <h3><a href="/category/devices">Devices</a></h3>
                     </div>
                     <div className="product">
                         <img src="/assets/images/stationery.jpg" alt="wait" />
-                        <h3><a href="#">Stationery</a></h3>
+                        <h3><a href="/category/stationery">Stationery</a></h3>
                     </div>
                 </div>
                 

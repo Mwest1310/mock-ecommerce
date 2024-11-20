@@ -581,6 +581,10 @@ p, a, input, label, li {
   }
 }
 
+#category-page {
+  height: 100vh;
+}
+
 @media screen and (min-width: 1200px) {
   .row {
     grid-auto-columns: 24%;

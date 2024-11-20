@@ -6,17 +6,18 @@ import User from '../models/userModel.js';
 // POST /api/users/auth
 // Public
 const authUser = asyncHandler(async(req, res) => {
-    const { email, password } = req.body;
-    const user = await User.findOne({email});
+    const { username, password } = req.body;
+    const user = await User.findOne({username});
     if(user && (await user.matchPassword(password))) {
         generateToken(res, user._id);
         res.json({
             _id: user._id,
-            email: user.email
+            username: user.username,
+            role: user.role
         });
     } else {
         res.status(401);
-        throw new Error('Invalid email or password');
+        throw new Error('Invalid username or password');
     };
 });
 
@@ -39,7 +40,8 @@ const registerUser = asyncHandler(async(req, res) => {
         generateToken(res, user._id);
         res.status(201).json({
             _id: user._id,
-            username: user.username
+            username: user.username,
+            role: user.role
         });
     } else {
         res.status(400);
@@ -64,7 +66,8 @@ const logoutUser = asyncHandler(async(req, res) => {
 const getUserProfile = asyncHandler(async(req, res) => {
     const user = {
         _id: req.user._id,
-        username: req.user.username
+        username: req.user.username,
+        role: req.user.role
     };
     res.status(200).json(user);
 });

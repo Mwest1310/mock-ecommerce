@@ -4,7 +4,7 @@ import { authUser,
         registerUser,
         logoutUser,
         getUserProfile, 
-        updateUserProfile 
+        updateUserProfile,
     } from '../controllers/userController.js';
 import { protect } from '../middleware/authMiddleware.js';
 

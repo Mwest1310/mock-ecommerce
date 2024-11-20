@@ -88,4 +88,4 @@ const deleteProduct = async(req, res, next) => {
     };
 };
 
-export { findProduct, createProduct, findAllProducts, searchProduct, updateProduct, deleteProduct };
+export { findProduct, createProduct, findAllProducts, searchProduct, updateProduct, deleteProduct};

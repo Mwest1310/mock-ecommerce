@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
@@ -8,12 +8,21 @@ import { clearCredentials } from '../slices/authSlice';
 
 const Header = () => {
   const { userInfo } = useSelector((state) => state.auth);
-
+  const [isAdmin, setIsAdmin] = useState('false');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const [logoutApiCall] = useLogoutMutation();
-
+  useEffect(() => {
+    const checkAdmin = () => {
+      if(userInfo) {
+        setIsAdmin(userInfo.role==='admin' ? true : false);
+      }
+      
+    }
+    checkAdmin();
+    console.log(isAdmin);
+  }, [userInfo]);
   const logoutHandler = async() => {
     try {
       await logoutApiCall().unwrap();
@@ -31,6 +40,7 @@ const Header = () => {
             <li className={userInfo ? 'hidden' : 'nav-link'}><a href="/login">Log In</a></li>
             <li className={userInfo ? 'hidden' : 'nav-link'}><a href="/signup">Sign Up</a></li>
             <li id="cart-icon" className={userInfo ? 'nav-link' : 'hidden'}><a href="/cart"><FontAwesomeIcon icon={faBasketShopping} /></a></li>
+            <li className={userInfo && isAdmin ? 'nav-link' : 'hidden'}><a href="#">Dashboard</a></li>
         </ul>
     </nav>
   );
