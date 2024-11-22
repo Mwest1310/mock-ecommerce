@@ -386,7 +386,6 @@ p, a, input, label, li {
 
 .form-container {
   width: 75%;
-  height: 50%;
   padding: 2rem;
   display: flex;
   flex-direction: column;
@@ -540,6 +539,14 @@ p, a, input, label, li {
 .purchase:hover {
   cursor: pointer;
   background-color: #1482D0;
+}
+
+#dashboard {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (min-width: 750px) {

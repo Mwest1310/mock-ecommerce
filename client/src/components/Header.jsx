@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { clearCredentials } from '../slices/authSlice';
 
@@ -21,7 +21,6 @@ const Header = () => {
       
     }
     checkAdmin();
-    console.log(isAdmin);
   }, [userInfo]);
   const logoutHandler = async() => {
     try {
@@ -40,7 +39,7 @@ const Header = () => {
             <li className={userInfo ? 'hidden' : 'nav-link'}><a href="/login">Log In</a></li>
             <li className={userInfo ? 'hidden' : 'nav-link'}><a href="/signup">Sign Up</a></li>
             <li id="cart-icon" className={userInfo ? 'nav-link' : 'hidden'}><a href="/cart"><FontAwesomeIcon icon={faBasketShopping} /></a></li>
-            <li className={userInfo && isAdmin ? 'nav-link' : 'hidden'}><a href="#">Dashboard</a></li>
+            <li className={userInfo && isAdmin ? 'nav-link' : 'hidden'}><a href="/dashboard">Dashboard</a></li>
         </ul>
     </nav>
   );
