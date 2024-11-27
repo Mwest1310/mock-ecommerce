@@ -33,6 +33,17 @@ const searchProduct = async(req, res, next) => {
     
 };
 
+const findRecentProducts = async(req, res, next) => {
+    try {
+        const limit = 9;
+        const products = await Product.find({}).sort({ 'updatedAt': 1 }).limit(limit);
+        return res.status(200).json(products);
+    } catch (error) {
+        res.status(500);
+        next(error);
+    }
+}
+
 const findProduct = async(req, res, next) => {
     try {
         const product = await Product.findById(req.params.id);
@@ -88,4 +99,4 @@ const deleteProduct = async(req, res, next) => {
     };
 };
 
-export { findProduct, createProduct, findAllProducts, searchProduct, updateProduct, deleteProduct};
+export { findProduct, createProduct, findAllProducts, findRecentProducts, searchProduct, updateProduct, deleteProduct};

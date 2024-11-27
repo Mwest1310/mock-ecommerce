@@ -14,11 +14,11 @@ const CreateProductForm = () => {
     const handleSubmit = async(e) => {
         e.preventDefault();
         try {
-            await createProduct(newProduct);
-            setNewProduct({name: '', description: '', price: '', category: '', image: ''})
+            console.log(await createProduct(newProduct));
+            setNewProduct({name: '', description: '', price: '', category: '', image: ''});
         } catch (err) {
             toast.error(err?.data?.message || err.error);
-            console.log(err);
+            console.log('Error creating a product: ', err.data.message);
         }
     }
     const handleImageChange = (e) => {
@@ -60,7 +60,9 @@ const CreateProductForm = () => {
                 <label htmlFor='image'>Upload Image</label>
                 <input type='file' onChange={handleImageChange} />
             </div>
-            <input type='submit' className="submit" value='Submit Product' />
+            <div className="form-div">
+                <input type='submit' className="submit" value='Submit Product' />
+            </div>
     </form>
     
   )

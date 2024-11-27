@@ -27,6 +27,8 @@ html, body, #root {
 
 #app {
   height: 100%;
+  font-size: var(--font-regular-size);
+  font-family: var(--font-regular);
 }
 
 h1 {
@@ -57,6 +59,10 @@ h4 {
 p, a, input, label, li {
   font-size: var(--font-regular-size);
   font-family: var(--font-regular);
+}
+
+textarea {
+  max-width: 100%;
 }
 
 .hidden {
@@ -403,7 +409,7 @@ p, a, input, label, li {
   gap: 1.5rem;
 }
 
-.form-div input {
+.form-div input, textarea, select {
   padding: 1rem;
   border-radius: 5px;
 }
@@ -428,9 +434,8 @@ p, a, input, label, li {
 
 #cart {
   padding: 5vh 5vw;
+  height: 100vh;
 }
-
-
 
 .cart-div {
   display: flex;
@@ -542,11 +547,14 @@ p, a, input, label, li {
 }
 
 #dashboard {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.tabs button {
+  width: 130px;
 }
 
 @media screen and (min-width: 750px) {
@@ -591,6 +599,14 @@ p, a, input, label, li {
 #category-page {
   height: 100vh;
 }
+
+.tabs button {
+  padding: 1.5rem 2rem;
+  border-radius: 10px;
+  margin: 3rem;
+}
+
+
 
 @media screen and (min-width: 1200px) {
   .row {

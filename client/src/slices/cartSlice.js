@@ -50,7 +50,7 @@ export const cartSlice = createSlice({
         },
         decrementQuantity: (state, action) => {
           const existingCartProductIndex = state.cartItems.findIndex((item) => item.product._id === action.payload.product._id);
-          if(existingCartProductIndex >= 0) {
+          if(existingCartProductIndex >= 0 && state.cartItems[existingCartProductIndex].qty > 0) {
             state.cartItems[existingCartProductIndex].qty -= 1;
             localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
           };

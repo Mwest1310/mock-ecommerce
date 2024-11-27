@@ -6,11 +6,13 @@ import userRoutes from './routes/userRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
-dotenv.config();
+import bodyParser from 'body-parser';
+dotenv.config({ path: './env/.env' });
 const port = process.env.PORT;
 
 const app = express();
 
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

@@ -39,7 +39,7 @@ const Cart = () => {
                                 <img src={cart.product.image} />
                                 <h3><a href="#">{cart.product.name}</a></h3>
                             </div>
-                            <p>£{cart.product.price}</p>
+                            <p>£{cart.product.price * cart.qty}</p>
                             <div>
                                 <button className="qty" onClick={() => handleIncrement(cart)}>+</button>
                                 <p>{cart.qty}</p>
