@@ -1,19 +1,27 @@
 {
   "name": "ecommerce-mock",
   "version": "1.0.0",
-  "description": "Mock E-commerce site",
-  "main": "server.js",
+  "description": "",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon server/server.js",
-    "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "npm install && npm install --prefix client && npm run build --prefix client"
+    "dev": "nodemon server/server.js",
+    "start": "node server/server.js"
   },
   "keywords": [],
-  "author": "Matthew West",
+  "author": "",
+  "type": "module",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^9.0.1"
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.6",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.3",
+    "stripe": "^17.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
   }
 }
