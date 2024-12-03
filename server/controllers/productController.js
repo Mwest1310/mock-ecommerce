@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 import Product from '../models/productModel.js';
 
+
+// Find products
+// GET /api/products
 const findAllProducts = async(req, res, next) => {
     try {
         const products = await Product.find({});
@@ -11,6 +14,9 @@ const findAllProducts = async(req, res, next) => {
     };
 };
 
+
+// Find product
+// GET by query
 const searchProduct = async(req, res, next) => {
     try {
         const limit = parseInt(req.query.limit) || 9;
@@ -33,10 +39,12 @@ const searchProduct = async(req, res, next) => {
     
 };
 
+
+// Find products / sort by recency
 const findRecentProducts = async(req, res, next) => {
     try {
         const limit = 9;
-        const products = await Product.find({}).sort({ 'updatedAt': 1 }).limit(limit);
+        const products = await Product.find({}).sort({ 'updatedAt': -1 }).limit(limit);
         return res.status(200).json(products);
     } catch (error) {
         res.status(500);
@@ -44,6 +52,9 @@ const findRecentProducts = async(req, res, next) => {
     }
 }
 
+
+// Find product
+// GET /api/products/:id
 const findProduct = async(req, res, next) => {
     try {
         const product = await Product.findById(req.params.id);
@@ -55,6 +66,9 @@ const findProduct = async(req, res, next) => {
    
 };
 
+
+// Create product
+// POST /api/products
 const createProduct = async(req, res, next) => {
     const product = req.body;
     if(!product.name || !product.price || !product.category || !product.image || !product.description) {
@@ -70,6 +84,9 @@ const createProduct = async(req, res, next) => {
     }
 };
 
+
+// Update product
+// PUT /api/products/:id
 const updateProduct = async(req, res, next) => {
     const { id } = req.params;
     const product = req.body;
@@ -85,6 +102,8 @@ const updateProduct = async(req, res, next) => {
     }
 }
 
+// Delete product
+// DELETE /api/products/:id
 const deleteProduct = async(req, res, next) => {
     const { id } = req.params;
     if(!mongoose.Types.ObjectId.isValid(id)) {

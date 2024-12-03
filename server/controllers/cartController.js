@@ -1,5 +1,6 @@
 import Product from "../models/productModel.js";
 
+// Didn't end up needing this. Keeping it just in case
 export const getCartProducts = async(req, res) => {
     try {
         const products = await Product.find({_id:{$in:req.user.cartItems}});

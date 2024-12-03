@@ -28,7 +28,7 @@ const Category = () => {
     navigate('/cart');
 }
   return (
-    <div id="category-page">
+    <div id="category-page" className="page">
       <div className="container">
         <div className="row-container">
           <div className="row">

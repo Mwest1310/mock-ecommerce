@@ -2,6 +2,7 @@ import express from 'express';
 import { protect } from '../middleware/authMiddleware.js';
 import { getCartProducts, addToCart, removeAllFromCart, updateQuantity } from '../controllers/cartController.js';
 
+// Didn't end up using this. Keeping it just in case
 const router = express.Router();
 
 router.get('/', protect, getCartProducts)

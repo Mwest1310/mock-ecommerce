@@ -20,10 +20,12 @@ const userSchema = mongoose.Schema({
     timestamps: true
 });
 
+// Creates the matchPassword method to the userSchema which compares the entered password with the saved password
 userSchema.methods.matchPassword = async function(enteredPassword) {
     return await bcrypt.compare(enteredPassword, this.password);
 };
 
+// Before saving a new user, check if the password has not been modified. If it has been modified, then has the password
 userSchema.pre('save', async function(next) {
     if(!this.isModified('password')) {
         next();

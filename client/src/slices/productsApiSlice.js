@@ -4,6 +4,7 @@ import { apiSlice } from "./apiSlice";
 
 const PRODUCTS_URL='/api/products';
 
+// Allows the client to interact with the products API
 export const productsApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         create: builder.mutation({

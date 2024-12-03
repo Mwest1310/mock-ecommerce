@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Checks local storage to see if cartItems is stored there. If so, then initialState is saved as cartItems. Otherwise, it is null
 const initialState = {
     cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
     cartTotalAmount: 0
 };
 
+// The slice for the cart. All reducers are stored here.
 export const cartSlice = createSlice({
     name: 'carts',
     initialState,

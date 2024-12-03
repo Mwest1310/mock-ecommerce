@@ -13,6 +13,7 @@ import Cart from './pages/Cart.jsx';
 import Category from './pages/Category.jsx';
 import Dashboard from './pages/Dashboard.jsx';
 
+// The router is saved here
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={ <App /> }>
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
   )
 )
 
+// The store is saved in the Provider here
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <StrictMode>

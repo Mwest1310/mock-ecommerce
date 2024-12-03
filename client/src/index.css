@@ -73,6 +73,10 @@ textarea {
   display: block;
 }
 
+.page {
+  height: 100vh;
+}
+
 #home {
   display: flex;
   flex-direction: column;
@@ -222,11 +226,6 @@ textarea {
   padding: 1.5vh 0;
 }
 
-/*.container {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-}*/
-
 .row-container {
   background-color: var(--colour-primary);
   padding: 1rem;
@@ -308,17 +307,6 @@ textarea {
   box-shadow: none;
 }
 
-/*.product button {
-  background-color: var(--accent);
-  color: var(--colour-text);
-  border: none;
-  box-shadow: 2px 2px 2px var(--accent);
-}
-
-.product button:hover {
-  cursor: pointer;
-}*/
-
 #cta {
   background-color: var(--colour-primary);
   padding: 1.5vh 0;
@@ -382,7 +370,6 @@ textarea {
 
 .form {
   margin: auto;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -434,7 +421,6 @@ textarea {
 
 #cart {
   padding: 5vh 5vw;
-  height: 100vh;
 }
 
 .cart-div {
@@ -594,10 +580,6 @@ textarea {
   .delete {
     width: 75px;
   }
-}
-
-#category-page {
-  height: 100vh;
 }
 
 .tabs button {

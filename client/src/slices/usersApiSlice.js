@@ -2,6 +2,7 @@ import { apiSlice } from './apiSlice';
 
 const USERS_URL = '/api/users';
 
+// Allows the client to interact with the users API
 export const usersApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
         login: builder.mutation({

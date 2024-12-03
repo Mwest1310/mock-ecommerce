@@ -26,7 +26,7 @@ const Cart = () => {
     }, [cartItems, dispatch]);
 
   return (
-    <div id="cart">
+    <div id="cart" className="page">
         <h2>Shopping Cart</h2>
         <div className="cart-container">
             <div className="cart-div cart-left">

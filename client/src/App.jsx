@@ -5,6 +5,8 @@ import Footer from './components/Footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
+// Stores the structure of the application
 const App = () => {
   return (
     <div id="app">
